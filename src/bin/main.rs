@@ -8,7 +8,8 @@ use std::time::Duration;
 
 fn main() {
     println!("Hello, world!");
-    let listener = TcpListener::bind("127.0.0.1:65534").unwrap();
+    let mut addr="127.0.0.1:65534";
+    let listener = TcpListener::bind(addr).unwrap();
 
     let pool = ThreadPool::new(4);
     for stream in listener.incoming() {
